@@ -1,0 +1,44 @@
+{{#partial "content"}}
+
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="/applicant/index">Applicants</a></li>
+    <li role="presentation"><a href="/applicant/new">Create Applicant</a></li>
+</ul>
+
+{{#if deleteApplicant}}
+<div class="alert alert-success alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> the applicant {{deleteApplicant.fullName}} was deleted.
+</div>
+{{/if}}
+
+
+<h1>Applicants</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#if applicants}}
+        {{#each applicants}}
+            <tr>
+                <th scope="row">1</th>
+                <td>{{fullName}}</td>
+                <td>{{email}}</td>
+                <td>{{phone}}</td>
+                <td><a href="/applicant/view/{{id}}">view</a></p><a href="/applicant/{{id}}/update">update</a><a href="/applicant/{{id}}/delete">delete</a></td>
+            </tr>
+        {{/each}}
+    {{/if}}
+    </tbody>
+</table>
+{{/partial}}
+
+{{> layout.hbs}}
